@@ -1,0 +1,15 @@
+[Unit]
+Description=Teleinfo
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/usr/bin/python /home/pi/teleinfo/teleinfo.py
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=teleinfo_service
+User=pi
+
+[Install]
+WantedBy=multi-user.target
