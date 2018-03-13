@@ -22,27 +22,25 @@ sudo apt-get install  --yes --force-yes  samba samba-common-bin python-pip
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.old
 ``` 
  
-4. configuration de samba
-```
-sudo smbpasswd -a pi
-sudo nano /etc/samba/smb.conf
-```
-    
-* Ajouter
-```
-[teleinfo]
-comment = teleinfo
-path = /home/pi/
-writable = yes
-guest ok = no
-guest only = no
-create mode = 0777
-directory mode = 0777
-share modes = yes
-```
-       
-* Enregistrer
-`sudo systemctl restart smbd.service`
+4. configuration de samba (optionel)
+  ```
+  sudo smbpasswd -a pi
+  sudo nano /etc/samba/smb.conf
+  ```
+  * Ajouter
+  ```
+  [teleinfo]
+  comment = teleinfo
+  path = /home/pi/
+  writable = yes
+  guest ok = no
+  guest only = no
+  create mode = 0777
+  directory mode = 0777
+  share modes = yes
+  ```  
+  * Enregistrer
+  `sudo systemctl restart smbd.service`
    
 5. Ajout des lib python
 `sudo pip install pyserial paho-mqtt`
