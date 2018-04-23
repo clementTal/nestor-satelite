@@ -1,0 +1,14 @@
+[Unit]
+Description=bleScanner
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/usr/bin/python /home/pi/bleScanner/bleScanner.py
+Restart=always
+StandardOutput=file:/home/pi/bleScanner/bleScannerOut.log
+StandardError=file:/home/pi/bleScanner/bleScannerError.log
+SyslogIdentifier=bleScanner_service
+
+[Install]
+WantedBy=multi-user.target

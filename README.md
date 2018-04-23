@@ -70,5 +70,23 @@ sudo systemctl start teleinfo.service
 # bluetooth low energy [WIP]
 
 ## install service
-http://www.instructables.com/id/Control-Bluetooth-LE-Devices-From-A-Raspberry-Pi/
+https://github.com/IanHarvey/bluepy
+
+## Préparation des dependances
+```
+$ sudo apt-get install python-pip libglib2.0-dev
+$ sudo pip install bluepy
+```
+
+## Création du service
+```
+cd /lib/systemd/system/
+sudo cp /home/pi/bleScanner/bleScanner.service  ./bleScanner.service
+sudo chmod 644 bleScanner.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable bleScanner.service
+sudo systemctl start bleScanner.service
+```
+
 
